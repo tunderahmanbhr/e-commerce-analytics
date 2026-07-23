@@ -1,0 +1,1 @@
+SELECT * FROM {{ source('e_commerce_analytics_dataset', 'olist_order_reviews_cleaned_english') }}

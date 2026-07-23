@@ -1,0 +1,1 @@
+select * from {{ source('e_commerce_analytics_dataset', 'olist-customers-dataset') }}

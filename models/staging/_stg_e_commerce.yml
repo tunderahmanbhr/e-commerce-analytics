@@ -1,0 +1,52 @@
+models:
+  - name: stg_olist_customers_dataset__customers
+    description: "{{ doc('stg_olist_customers_dataset__customers') }}"
+    columns:
+      - name: customer_id
+        description: unique id representing each customer, this is the primary key.
+        data_tests:
+        - unique
+        - not_null
+  
+  - name: stg_olist_order_items_dataset__orders
+    description: Raw data representating order information, the table doesn't seem to have a column with a primary key, additional checks my be required or/and a column with a primary key might be created in the next transformation stage.
+    columns:
+      - name: order_item_id
+        data_tests:
+        - not_null
+      - name: order_id
+        data_tests:
+        - not_null
+      - name: seller_id
+        data_tests:
+        - not_null
+
+
+  - name: stg_olist_order_payments_dataset__payments
+    description: raw file representating payment information, table doesn't have column with unique values. 
+    columns:
+      - name: order_id
+        data_tests:
+        - not_null
+
+
+
+  - name: stg_olist_sellers_dataset__merchants
+    description: raw file representating seller information, table doesn't have column with unique values. 
+    columns:
+        - name: seller_id
+          description: this column represents each unique seller with a unique primary key
+          data_tests:
+          - not_null
+          - unique
+
+  -    name: stg_olist_orders_dataset__orders
+       description: raw file representating order information. 
+       columns:
+         - name: order_id
+           data_tests:
+           - not_null
+           - unique
+            
+
+

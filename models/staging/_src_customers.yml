@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: e_commerce_analytics_dataset
+    database: vertical-realm-499812-r2
+    schema: e_commerce_analytics_dataset
+    tables:
+      - name: olist-customers-dataset
+      - name: olist-geolocation-dataset
+      - name: olist-order-items-dataset
+      - name: olist_order_payments_dataset
+      - name: olist_order_reviews_cleaned_english
+      - name: olist_orders_dataset
+      - name: olist_products_dataset
+      - name: olist_sellers_dataset
+      - name: product_category_name_translation
