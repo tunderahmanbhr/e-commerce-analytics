@@ -70,11 +70,6 @@ models:
       - name: seller_state
         description: seller state
 
-
-
-
-
-
   - name: stg_olist_orders_dataset__orders
     description: This is the core dataset. From each order you might find all other information.
     columns:
@@ -124,5 +119,12 @@ models:
       - name: product_width-cm
         description:  product width measured in centimeters.
 
+
+  - name: stg_product_category_name_translation__products
+    description: Translates the product_category_name to english
+      - name: product_category_name
+        description: category name in Portuguese
+      - name : productory_category_name_english 
+        description: category name in English
       
 
