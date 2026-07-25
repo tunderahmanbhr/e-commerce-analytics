@@ -1,6 +1,5 @@
 models:
   - name: stg_olist_customers_dataset__customers
-    description: "{{ doc('stg_olist_customers_dataset__customers') }}"
     columns:
       - name: customer_id
         description: unique id representing each customer, this is the primary key.
