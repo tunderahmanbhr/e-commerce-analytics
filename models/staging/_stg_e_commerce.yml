@@ -1,12 +1,17 @@
 models:
   - name: stg_olist_customers_dataset__customers
+    description: "{{ doc('customer_table') }}"
     columns:
       - name: customer_id
         description: unique id representing each customer, this is the primary key.
         data_tests:
         - unique
         - not_null
-  
+      - name: customer_unique_id
+        description: unique identifier of a customer. column is not unique but has no nulls. 
+        data_tests:
+          - not_null
+          
   - name: stg_olist_order_items_dataset__orders
     description: Raw data representating order information, the table doesn't seem to have a column with a primary key, additional checks my be required or/and a column with a primary key might be created in the next transformation stage.
     columns:
