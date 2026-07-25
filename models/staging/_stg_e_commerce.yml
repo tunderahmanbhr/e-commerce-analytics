@@ -56,24 +56,73 @@ models:
         description: transaction value
 
   - name: stg_olist_sellers_dataset__merchants
-    description: Raw file representing seller information. This table doesn't have a column with unique values.
+    description:   "{{ doc('sellers_table') }}"
     columns:
       - name: seller_id
-        description: this column represents each unique seller with a unique primary key
+        description: seller unique identifier
         data_tests:
           - not_null
           - unique
+      - name: seller_zip_code_prefix
+        description: first 5 digits of seller zip code
+      - name: seller_city
+        description: seller city name
+      - name: seller_state
+        description: seller state
+
+
+
+
+
 
   - name: stg_olist_orders_dataset__orders
-    description: Raw file representing order information.
+    description: This is the core dataset. From each order you might find all other information.
     columns:
       - name: order_id
+        description: unique identifier of the order.
         data_tests:
           - not_null
           - unique
+      - name: order_status
+        description: Reference to the order status (delivered, shipped, etc).
+      - name: customer_id
+        description: key to the customer dataset. Each order has a unique customer_id.
+      - name: order_purchase_timestamp
+        description: Shows the purchase timestamp.
+      - name: order_approved_at
+        description: Shows the payment approval timestamp.
+      - name: order_delivered_customer_date
+        description: Shows the order posting timestamp. When it was handled to the logistic partner.
+      - name: order_estimated_delivery_date
+        description: Shows the estimated delivery date that was informed to customer at the purchase moment.
 
   - name: stg_olist_geolocation_dataset__locations
     description: "{{ doc('location_table') }}"
 
   - name: stg_olist_order_reviews_cleaned_english__orders
     description: "{{ doc('order_reviews_table') }}"
+
+  - name: stg_olist_products_dataset__products
+    description: This dataset includes data about the products sold by Olist.
+    columns:
+      - name: product_id
+        description: unique product identifier
+      - name: product_category_name
+        description: root category of product, in Portuguese.
+      - name: product_name_lenght
+        description: number of characters extracted from the product name.
+      - name: product_description_lenght
+        description: number of characters extracted from the product description.
+      - name: product_photo_qty
+        description: number of product published photos
+      - name: product_weight_g
+        description: product weight measured in grams.
+      - name: product_lenght_cm
+        description: product length measured in centimeters.
+      - name: product_height_cm
+        description:  product height measured in centimeters.
+      - name: product_width-cm
+        description:  product width measured in centimeters.
+
+      
+
