@@ -37,5 +37,14 @@ by email where he can give a note for the purchase experience and write down som
 
 {% enddocs %}
 
+{% docs sellers_table %}
+
+This dataset includes data about the sellers that fulfilled orders made at Olist. Use it to find the seller location 
+and to identify which seller fulfilled each product.
+
+{% enddocs %}
+
+
+
 
 
