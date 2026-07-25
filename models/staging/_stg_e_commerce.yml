@@ -18,24 +18,42 @@ models:
           - not_null
 
   - name: stg_olist_order_items_dataset__orders
-    description: Raw data representing order information. The table doesn't appear to have a primary key, so additional checks may be required.
+    description: "{{ doc('order_items_table') }}"
     columns:
       - name: order_item_id
+        description: sequential number identifying number of items included in the same order.
         data_tests:
           - not_null
       - name: order_id
+        description: order unique identifier
         data_tests:
           - not_null
       - name: seller_id
+        description: seller unique identifier
         data_tests:
           - not_null
+      - name: shipping_limit_date
+        description: Shows the seller shipping limit date for handling the order over to the logistic partner.
+      - name: price
+        description: item price
+      - name: freight_value
+        description: item freight value item (if an order has more than one item the freight value is splitted between items)
 
   - name: stg_olist_order_payments_dataset__payments
-    description: Raw file representing payment information. This table doesn't have a column with unique values.
+    description: This dataset includes data about the orders payment options.
     columns:
       - name: order_id
+        description: unique identifier of an order.
         data_tests:
           - not_null
+      - name: payment_sequential
+        description: a customer may pay an order with more than one payment method. If he does so, a sequence will be created to
+      - name: payment_type
+        description: method of payment chosen by the customer.
+      - name: payment_installment
+        description:  number of installments chosen by the customer.
+      - name: payment_value
+        description: transaction value
 
   - name: stg_olist_sellers_dataset__merchants
     description: Raw file representing seller information. This table doesn't have a column with unique values.
@@ -53,3 +71,9 @@ models:
         data_tests:
           - not_null
           - unique
+
+  - name: stg_olist_geolocation_dataset__locations
+    description: "{{ doc('location_table') }}"
+
+  - name: stg_olist_order_reviews_cleaned_english__orders
+    description: "{{ doc('order_reviews_table') }}"
