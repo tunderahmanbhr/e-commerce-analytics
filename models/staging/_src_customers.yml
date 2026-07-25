@@ -6,6 +6,11 @@ sources:
     schema: e_commerce_analytics_dataset
     tables:
       - name: olist-customers-dataset
+        columns:
+          - name: customer_id
+            data_tests:
+              - unique
+              - not_null  
       - name: olist-geolocation-dataset
       - name: olist-order-items-dataset
       - name: olist_order_payments_dataset
