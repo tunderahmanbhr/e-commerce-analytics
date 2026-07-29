@@ -9,7 +9,7 @@ models:
           - not_null
           - relationships:
               description: The customer table has a one-on-one relationship with the orders table on the customer id coulumn
-              arguments: 
+              arguments:
                 to: ref('stg_olist_orders_dataset__orders')
                 field: customer_id
 
@@ -25,10 +25,6 @@ models:
         description: sequential number identifying number of items included in the same order.
         data_tests:
           - not_null
-      - name: order_id
-        description: order unique identifier
-        data_tests:
-          - not_null
       - name: seller_id
         description: seller unique identifier
         data_tests:
@@ -40,15 +36,14 @@ models:
       - name: freight_value
         description: item freight value item (if an order has more than one item the freight value is splitted between items)
       - name: order_id
+        description: order unique identifier
         data_tests:
           - not_null
           - relationships:
               description: This table has a many-to-one relationship with the orders table on the "order_id" column. One order can contain many items.
-              arguments: 
+              arguments:
                 to: ref('stg_olist_orders_dataset__orders')
                 field: order_id
-
-          
 
   - name: stg_olist_order_payments_dataset__payments
     description: This dataset includes data about the orders payment options.
@@ -62,12 +57,12 @@ models:
       - name: payment_type
         description: method of payment chosen by the customer.
       - name: payment_installment
-        description:  number of installments chosen by the customer.
+        description: number of installments chosen by the customer.
       - name: payment_value
         description: transaction value
 
   - name: stg_olist_sellers_dataset__merchants
-    description:   "{{ doc('sellers_table') }}"
+    description: "{{ doc('sellers_table') }}"
     columns:
       - name: seller_id
         description: seller unique identifier
@@ -113,7 +108,7 @@ models:
           - not_null
           - relationships:
               description: This table has a many-to-one relationship with the orders dataset on the 'order_ids' column. I.e an order can receive multiple reviews
-              arguments: 
+              arguments:
                 to: ref('stg_olist_orders_dataset__orders')
                 field: order_id
 
@@ -135,16 +130,14 @@ models:
       - name: product_lenght_cm
         description: product length measured in centimeters.
       - name: product_height_cm
-        description:  product height measured in centimeters.
+        description: product height measured in centimeters.
       - name: product_width-cm
-        description:  product width measured in centimeters.
+        description: product width measured in centimeters.
 
   - name: stg_product_category_name_translation__products
     description: Translates the product_category_name to english
     columns:
       - name: product_category_name
         description: category name in Portuguese
-      - name : productory_category_name_english 
+      - name: productory_category_name_english
         description: category name in English
-      
-
