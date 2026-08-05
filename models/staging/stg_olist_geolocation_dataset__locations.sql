@@ -1,1 +1,2 @@
-SELECT * FROM {{ source('e_commerce_analytics_dataset', 'olist-geolocation-dataset') }}
+SELECT distinct * 
+FROM {{ source('e_commerce_analytics_dataset', 'olist-geolocation-dataset') }}

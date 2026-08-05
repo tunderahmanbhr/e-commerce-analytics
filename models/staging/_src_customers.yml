@@ -11,11 +11,12 @@ sources:
             data_tests:
               - unique
               - not_null  
+      - name: olist_sellers_dataset
       - name: olist-geolocation-dataset
       - name: olist-order-items-dataset
       - name: olist_order_payments_dataset
       - name: olist_order_reviews_cleaned_english
       - name: olist_orders_dataset
       - name: olist_products_dataset
-      - name: olist_sellers_dataset
+
       - name: product_category_name_translation
