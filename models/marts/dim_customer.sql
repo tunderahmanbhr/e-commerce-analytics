@@ -10,7 +10,9 @@ select
     {{ dbt_utils.generate_surrogate_key(['customer_id']) }} as customer_key,
     customer_unique_id,
     customer_city,
-    customer_state
+    customer_state,
+    geolocation_lat as customer_geolocation_lat,
+    geolocation_lng as customer_geolocation_lng
 from customer 
 left join customer_location
 on customer.customer_zip_code_prefix = customer_location.geolocation_zip_code_prefix

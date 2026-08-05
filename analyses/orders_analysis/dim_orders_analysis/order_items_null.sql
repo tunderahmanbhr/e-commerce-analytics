@@ -1,0 +1,2 @@
+
+select * from {{ ref('stg_olist_order_items_dataset__orders') }}
