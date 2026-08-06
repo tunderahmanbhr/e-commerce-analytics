@@ -16,8 +16,10 @@ order_payments as (
 ),
 dim_orders as (
     select distinct
+        {{ dbt_utils.generate_surrogate_key(['orders.order_id']) }} as order_key,
         orders.order_id as order_id,
         order_status,
+        case when order_status = 'canceled' then 'yes' else 'no' end as is_cancelled,
         review_score,
         review_comment_message as review_comment,
         payment_sequential,
