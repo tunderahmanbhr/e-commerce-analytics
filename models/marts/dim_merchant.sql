@@ -10,7 +10,7 @@ location_data as (
 ),
 dim_merchant as (
     select distinct 
-        {{ dbt_utils.generate_surrogate_key(['seller_id']) }} as merchant_key,
+        {{ dbt_utils.generate_surrogate_key(['seller_id','seller_city','seller_state','seller_zip_code_prefix','geolocation_lat','geolocation_lng']) }} as merchant_key,
         merchant_data.seller_id as merchant_id,
         merchant_data.seller_city as merchant_city,
         merchant_data.seller_state as merchant_state,
