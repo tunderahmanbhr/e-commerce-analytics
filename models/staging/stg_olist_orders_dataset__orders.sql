@@ -13,8 +13,7 @@ with order_table as (
 select 
     *,
     cast(concat(order_delivered_customer_year,'-',order_delivered_customer_month,'-',order_delivered_customer_day)as Date) as order_delivered_date,
-    cast(concat(order_estimated_delivery_year,'-',order_estimated_delivery_month,'-',order_estimated_delivery_day)as Date) as order_estimated_date,
-    date_diff(order_delivered_date,order_estimated_date,day) as date_difference
+    cast(concat(order_estimated_delivery_year,'-',order_estimated_delivery_month,'-',order_estimated_delivery_day)as Date) as order_estimated_date
 from order_table
 
 
